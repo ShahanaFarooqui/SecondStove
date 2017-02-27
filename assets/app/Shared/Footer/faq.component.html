@@ -1,0 +1,39 @@
+<div class="main-page">
+  <div class="row">
+    <div class="col-sm-9">
+      <h2>
+        FAQ - SecondStove
+      </h2>
+      <p>
+        SecondStove.com is an online marketplace for home cooked food. It’s designed to bring the enterprising chefs and foodies together. Chefs can sign up on the platform to share their food with the foodies in the neighborhood. Our chefs will create all dishes on demand, from scratch offering you an experience that can only be matched in your own kitchen.
+      </p>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <h4>
+          Chefs
+        </h4>
+        <div *ngFor="let faq of faqs;let i=index;">
+          <div *ngIf="faq.user=='C'">
+            <div class="panel panel-default">
+              <div class="panel-heading" style="cursor:pointer;" (click)="onClick(i)"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>{{faq.question}}</div>
+              <div class="panel-body" *ngIf="displayAnswer[i]">{{faq.answer}}</div>
+            </div>
+          </div>
+        </div>
+        <h4>
+          Foodies
+        </h4>
+        <div *ngFor="let faq of faqs;let i=index;">
+          <div *ngIf="faq.user=='F'">
+            <div class="panel panel-default">
+              <div class="panel-heading" style="cursor: pointer" (click)="onClick(i)"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>{{faq.question}}</div>
+              <div class="panel-body" *ngIf="displayAnswer[i]">{{faq.answer}}</div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-3">
+      <ss-search></ss-search>
+    </div>
+  </div>
+</div>
